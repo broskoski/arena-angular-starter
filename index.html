@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Arena Influences</title>
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/skeleton/1.2/skeleton.min.css">
+        <script src="http://code.angularjs.org/1.1.5/angular.min.js"></script>
+        <script src="http://code.angularjs.org/1.1.5/angular-resource.min.js"></script>
+        <script src="http://code.angularjs.org/1.1.5/angular-sanitize.min.js"></script>
+    </head>
+    <body ng-app="arenaApp">
+
+        <div class="container" ng-controller="channelShow">
+            <div class="sixteen columns">
+                <h1>{{channel.title}}</h1>
+            </div>
+
+            <div class="row" ng-repeat="block in channel.contents">
+
+                <h2>{{block.title}}</h2>
+                
+            </div>
+            
+        </div>
+        
+
+        <script type="text/javascript">
+            var app = angular.module('arenaApp', ['ngResource', 'ngSanitize']);
+
+            app.controller('channelShow', function($scope, $resource) { 
+              var Channel = $resource('http://api.are.na/v2/channels/:slug');
+
+              var channel = Channel.get({slug: 'arena-influences', sort: 'position', direction: 'desc'}, function(){
+                $scope.channel = channel;
+              });
+            })
+       </script>
+    </body>
+</html>
