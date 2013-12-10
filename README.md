@@ -14,3 +14,5 @@ Copy this html file to anywhere on a webserver, and have at it!
 If you are developing locally, I use python's SimpleHTTPServer. Navigate to your folder in the terminal and paste:
 
     python -m SimpleHTTPServer 8080
+    
+Then simply visit http://localhost:8080 in your browser.
