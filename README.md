@@ -15,4 +15,4 @@ If you are developing locally, I use python's SimpleHTTPServer. Navigate to your
 
     python -m SimpleHTTPServer 8080
     
-Then simply visit http://localhost:8080 in your browser.
+Then, visit http://localhost:8080 in your browser.
